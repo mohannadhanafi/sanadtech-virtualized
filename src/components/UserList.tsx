@@ -6,6 +6,8 @@ import AlphabetMenu from "./AlphabetMenu";
 import UserListContainer from "./UserListContainer";
 import { toast } from "react-toastify";
 
+const NUMBER_OF_ITEMS_IN_LIST = 17;
+
 const UserList: React.FC = () => {
   const [usernames, setUsernames] = useState<string[]>([]);
   const [searchQuery, setSearchQuery] = useState<string>("");
@@ -26,11 +28,17 @@ const UserList: React.FC = () => {
     fetchUsernames();
   }, []);
 
-  const scrollToLetter = (letter: string) => {
-    setSearchQuery("");
+  const scrollToLetter = async (letter: string, prevLetter?: string) => {
+    await setSearchQuery("");
     const index = usernames.findIndex((name) => name.startsWith(letter));
     if (index !== -1 && listRef.current) {
-      listRef.current.scrollToRow(index);
+      if (prevLetter && prevLetter < letter) {
+        listRef.current.scrollToRow(
+          index === 0 ? index : index + NUMBER_OF_ITEMS_IN_LIST
+        );
+      } else {
+        listRef.current.scrollToRow(index);
+      }
     } else {
       toast.error(`There are no words start with ${letter} letter`, {
         position: "top-right",

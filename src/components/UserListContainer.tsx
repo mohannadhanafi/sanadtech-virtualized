@@ -3,7 +3,7 @@ import { List, ListRowRenderer } from "react-virtualized";
 import Placeholder from "./Placeholder";
 import AutoSizer from "react-virtualized-auto-sizer";
 
-interface UserListContainerProps {
+type UserListContainerProps = {
   filteredUsernames: string[];
   isLoading: boolean;
   listRef: Ref<List>;
@@ -22,7 +22,7 @@ const UserListContainer: React.FC<UserListContainerProps> = ({
     ) : filteredUsernames.length === 0 ? (
       <div className="no-results">No results found</div>
     ) : (
-<AutoSizer>
+      <AutoSizer>
         {({ height, width }: any) => (
           <List
             ref={listRef}
@@ -31,7 +31,6 @@ const UserListContainer: React.FC<UserListContainerProps> = ({
             rowHeight={40}
             width={width}
             rowRenderer={renderRow}
-            overscanRowCount={10}
           />
         )}
       </AutoSizer>

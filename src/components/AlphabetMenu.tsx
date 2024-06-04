@@ -5,7 +5,7 @@ interface AlphabetMenuProps {
 }
 
 const AlphabetMenu: React.FC<AlphabetMenuProps> = ({ scrollToLetter }) => {
-  const [prevLetter, setPrevLetter] = useState<string>('');
+  const [prevLetter, setPrevLetter] = useState<string>('A');
 
   return (
   <div className="alphabet-menu">

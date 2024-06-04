@@ -1,38 +1,145 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+#root {
+  width: 100%;
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  
+  .container {
+    padding: 2rem;
+    max-width: 1280px;
+    margin: 0 auto;
+    text-align: center;
   }
-  to {
-    transform: rotate(360deg);
+  
+  .header {
+    background-color: #333;
+    padding: 20px;
   }
-}
+  
+  .logo {
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    font-size: 24px;
+    margin: 0;
+  }
+  
+  
+  .user-list-container {
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    justify-content: center;
+  }
+  
+  .alphabet-menu {
+    width: 30px;
+    margin-right: 2px;
+    font-size: 14px;
+  }
+  
+  .alphabet-item {
+    cursor: pointer;
+    margin-bottom: 2px;
+    border-radius: 2px;
+    background-color: #f0f0f0;
+    text-align: center;
+    color: #333;
+    font-weight: bold;
+    font-size: 13px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .alphabet-item:hover {
+    background-color: #ddd;
+  }
+  
+  .user-list {
+    margin-left: 6px;
+    width: 80vw;
+    background: inherit;
+    height: 100vh;
+  }
+  
+  .placeholder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    font-size: 18px;
+    color: #888;
+  }
+  
+  .loader {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    animation: spin 2s linear infinite;
+    margin-right: 10px;
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .list-item-even,
+  .list-item-odd {
+    padding: 10px;
+    font-size: 12px;
+    transition: background-color 0.3s ease;
+    color: #333;
+    cursor: pointer;
+  }
+  
+  .list-item-even {
+    background-color: #f2f2f2;
+  }
+  
+  .list-item-odd {
+    background-color: #fff;
+  }
+  
+  .list-item-even:hover,
+  .list-item-odd:hover {
+    background-color: #bcbbbb;
+  }
+  
+  .search-container {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .search-input {
+    width: 100%;
+    padding: 12px 20px;
+    border-radius: 25px;
+    border: 2px solid #6c63ff;
+    outline: none;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+  }
+  
+  .search-input:hover {
+    border-color: #8a85ff;
+  }
+  
+  .search-input:focus {
+    border-color: #a09cff;
+    box-shadow: 0 0 0 2px rgba(108, 99, 255, 0.2);
+  }
+  
+  
+  .no-results {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    font-size: 18px;
+    color: #888;
+  }
+  
